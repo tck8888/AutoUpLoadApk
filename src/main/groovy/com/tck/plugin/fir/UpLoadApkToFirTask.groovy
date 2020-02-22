@@ -1,6 +1,7 @@
 package com.tck.plugin.fir
 
 import com.tck.plugin.UpLoadApkConfigExtension
+import com.tck.plugin.dingding.UpLoadApkToDingDingImpl
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
@@ -31,8 +32,15 @@ class UpLoadApkToFirTask extends DefaultTask {
             return
         }
         def firTaskImpl = new UpLoadApkToFirTaskImpl(upLoadApkConfigExtension)
-        firTaskImpl.startUpload()
+        //上传到fir
+        List<UploadApkInfo> uploadApkInfoList = firTaskImpl.startUpload()
 
+        if (uploadApkInfoList != null && !uploadApkInfoList.isEmpty()) {
+            //发送钉钉消息
+            if (upLoadApkConfigExtension.dingding != null && !upLoadApkConfigExtension.dingding.isEmpty()) {
+                new UpLoadApkToDingDingImpl(uploadApkInfoList, upLoadApkConfigExtension).sendDingDing()
+            }
+        }
     }
 
     static boolean checkUpLoadApkConfigExtension(UpLoadApkConfigExtension extension) {

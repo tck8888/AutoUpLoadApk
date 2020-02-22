@@ -1,6 +1,6 @@
 package com.tck.plugin
 
-class UpLoadApkConfigExtension {
+class UpLoadApkConfigExtension implements Serializable{
 
     String appName
     String appPackageName
@@ -9,6 +9,8 @@ class UpLoadApkConfigExtension {
     String firToken
     String apkPath
     List<String> logs = new ArrayList<>()
+
+    Map<String, String> dingding = new HashMap<>()
 
     String getLogStr() {
         def builder = new StringBuilder()
@@ -28,19 +30,33 @@ class UpLoadApkConfigExtension {
         return builder.toString()
     }
 
+//
+//    @Override
+//     String toString() {
+//        return "\n{" +
+//                "appName:" + appName + '\n' +
+//                "appPackageName:" + appPackageName + '\n' +
+//                "appVersion:" + appVersion + '\n' +
+//                "appVersionCode:" + appVersionCode + '\n' +
+//                "firToken:" + firToken + '\n' +
+//                "apkPath:" + apkPath + '\n' +
+//                "logs:" + logs +'\n'+
+//                "dingding:" + dingding +
+//                '\n}'
+//    }
+
     @Override
-    String toString() {
+    public String toString() {
         return """
-上传配置如下：
-    {
-        "appName":"${appName}",
-        "appPackageName":"${appPackageName}",
-        "appVersion":"${appVersion}",
-        "appVersionCode":"${appVersionCode}",
-        "firToken":"${firToken}",
-        "apkPath":"${apkPath}",
-        "logs":${logs}
-    }
-               """
+{
+    "appName":"$appName", 
+    "appPackageName":"$appPackageName", 
+    "appVersion":"$appVersion", 
+    "appVersionCode":"$appVersionCode", 
+    "firToken":"$firToken", 
+    "apkPath":"$apkPath", 
+    "logs":$logs, 
+    "dingding":$dingding
+}"""
     }
 }

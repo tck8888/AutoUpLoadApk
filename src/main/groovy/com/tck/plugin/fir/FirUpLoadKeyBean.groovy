@@ -10,16 +10,16 @@ class FirUpLoadKeyBean {
     public String shorts
     public CertBean cert
 
-    public static class CertBean {
+    static class CertBean {
         public IconBean icon
         public BinaryBean binary
-        public static class IconBean {
+        static class IconBean {
             public String key
             public String token
             public String upload_url
         }
 
-        public static class BinaryBean {
+        static class BinaryBean {
             public String key
             public String token
             public String upload_url

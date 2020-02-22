@@ -11,7 +11,7 @@ class AutoUploadApkPlugin implements Plugin<Project> {
         project.extensions.create("upLoadApkConfigExtension", UpLoadApkConfigExtension)
 
         project.tasks
-                .create('uploadApkTask', UpLoadApkToFirTask)
+                .create('uploadApkTask', UpLoadApkToFirTask.class)
                 .dependsOn("assembleDebug", "assembleUat")
 
     }
