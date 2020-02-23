@@ -14,7 +14,9 @@ class JsonUtils {
 
     static Gson gson() {
         if (gson == null) {
-            return new GsonBuilder().setPrettyPrinting().create()
+            return new GsonBuilder()
+                    .setPrettyPrinting()
+                    .create()
         }
         return gson
     }

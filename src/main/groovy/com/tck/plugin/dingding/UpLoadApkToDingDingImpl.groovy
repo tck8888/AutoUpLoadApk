@@ -1,6 +1,5 @@
 package com.tck.plugin.dingding
 
-import com.google.gson.Gson
 import com.tck.plugin.UpLoadApkConfigExtension
 import com.tck.plugin.fir.UploadApkInfo
 import com.tck.plugin.utils.JsonUtils
@@ -58,17 +57,15 @@ class UpLoadApkToDingDingImpl {
                     DingDingLinkMsg dingDingLinkMsg = new DingDingLinkMsg()
                     dingDingLinkMsg.msgtype = "link"
 
-                    DingDingLinkMsg.LinkBean linkBean = new DingDingLinkMsg.LinkBean()
+                    LinkBean linkBean = new LinkBean()
                     linkBean.messageUrl = uploadApkInfo.getApkDownloadUrl()
                     linkBean.picUrl = "http://assets.yaoyanshe.com/yaoyanshe_logo.png"
                     linkBean.title = uploadApkInfo.getAppName()
-                    linkBean.text = "安卓${uploadApkInfo.env}\n" +
-                            "版本：${uploadApkInfo.appVersion}\n" +
-                            "更新内容：${upLoadApkConfigExtension.getLogStr()}"
+                    linkBean.text = "更新内容：\n ${upLoadApkConfigExtension.getLogStr()}"
                     dingDingLinkMsg.link = linkBean
                     String message = JsonUtils.gson().toJson(dingDingLinkMsg)
 
-                    println("消息类容：\n${JsonUtils.gson().toJson(DingDingLinkMsg)}")
+                    println("消息类容：\n${message}")
 
                     Request request = new Request.Builder()
                             .url(groupUrl)
