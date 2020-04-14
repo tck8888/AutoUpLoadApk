@@ -59,8 +59,8 @@ class UpLoadApkToDingDingImpl {
 
                     LinkBean linkBean = new LinkBean()
                     linkBean.messageUrl = uploadApkInfo.getApkDownloadUrl()
-                    linkBean.picUrl = "http://assets.yaoyanshe.com/yaoyanshe_logo.png"
-                    linkBean.title = uploadApkInfo.getAppName()
+                    linkBean.picUrl = upLoadApkConfigExtension.appLogo
+                    linkBean.title = upLoadApkConfigExtension.appName + "-安卓" + uploadApkInfo.env + "-" + uploadApkInfo.appVersionCode
                     linkBean.text = "更新内容：\n ${upLoadApkConfigExtension.getLogStr()}"
                     dingDingLinkMsg.link = linkBean
                     String message = JsonUtils.gson().toJson(dingDingLinkMsg)

@@ -20,7 +20,7 @@ class UploadApkInfo {
     UploadApkInfo(String apkFileName, UpLoadApkConfigExtension versionInfoBasicBean) {
         if (apkFileName.contains("uat")) {
             appPackageName = versionInfoBasicBean.getAppPackageName() + ".uat.v" + versionInfoBasicBean.getAppVersionCode();
-            appName = versionInfoBasicBean.getAppName() + "-uat-" + versionInfoBasicBean.getAppVersionCode();
+            appName = versionInfoBasicBean.getAppName() + "-uat-" + versionInfoBasicBean.getAppVersionCode()
             env = "uat"
         } else if (apkFileName.contains("debug")) {
             appPackageName = versionInfoBasicBean.getAppPackageName() + ".test.v" + versionInfoBasicBean.getAppVersionCode()
@@ -37,7 +37,7 @@ class UploadApkInfo {
 
     }
 
-    public void setApkDownloadUrl(String apkDownloadUrl) {
-        this.apkDownloadUrl = "https://fir.im/" + apkDownloadUrl;
+    void setApkDownloadUrl(String apkDownloadUrl) {
+        this.apkDownloadUrl = "http://d.zqapps.com/" + apkDownloadUrl;
     }
 }

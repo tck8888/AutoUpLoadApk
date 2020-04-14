@@ -3,6 +3,7 @@ package com.tck.plugin
 class UpLoadApkConfigExtension implements Serializable{
 
     String appName
+    String appLogo
     String appPackageName
     String appVersion
     String appVersionCode

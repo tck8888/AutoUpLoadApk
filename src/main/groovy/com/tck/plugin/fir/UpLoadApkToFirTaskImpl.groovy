@@ -1,17 +1,11 @@
 package com.tck.plugin.fir
 
-import com.google.gson.Gson
+
 import com.tck.plugin.UpLoadApkConfigExtension
 import com.tck.plugin.utils.JsonUtils
 import com.tck.plugin.utils.YLogUtils
 import groovy.json.JsonOutput
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
-import okhttp3.Response
-
+import okhttp3.*
 /**
  *
  * @author tck88*
@@ -19,7 +13,7 @@ import okhttp3.Response
  */
 class UpLoadApkToFirTaskImpl {
 
-    static String UPLOAD_URL = "http://api.fir.im/apps"
+    static String UPLOAD_URL = "http://api.bq04.com/apps"
     static MediaType mediaType = MediaType.parse("application/json")
 
     static OkHttpClient okHttpClient = new OkHttpClient()
